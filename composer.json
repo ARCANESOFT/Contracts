@@ -1,6 +1,6 @@
 {
     "name":        "arcanesoft/contracts",
-    "description": "ARCANESOFT Contracts package.",
+    "description": "The ARCANESOFT Contracts package.",
     "homepage":    "https://github.com/ARCANESOFT/Contracts",
     "keywords":    ["arcanedev", "arcanesoft", "contracts", "laravel"],
     "authors":  [
