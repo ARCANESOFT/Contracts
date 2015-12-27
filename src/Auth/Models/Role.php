@@ -1,12 +1,14 @@
 <?php namespace Arcanesoft\Contracts\Auth\Models;
 
+use Arcanesoft\Contracts\Traits\Activatable;
+
 /**
  * Interface  Role
  *
  * @package   Arcanesoft\Contracts\Auth\Models
  * @author    ARCANEDEV <arcanedev.maroc@gmail.com>
  */
-interface Role
+interface Role extends Activatable
 {
     /* ------------------------------------------------------------------------------------------------
      |  Relationships

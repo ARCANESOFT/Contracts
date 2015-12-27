@@ -1,12 +1,14 @@
 <?php namespace Arcanesoft\Contracts\Auth\Models;
 
+use Arcanesoft\Contracts\Traits\Activatable;
+
 /**
  * Interface  User
  *
  * @package   Arcanesoft\Contracts\Auth\Models
  * @author    ARCANEDEV <arcanedev.maroc@gmail.com>
  */
-interface User
+interface User extends Activatable
 {
     /* ------------------------------------------------------------------------------------------------
     |  Relationships
@@ -45,6 +47,7 @@ interface User
      * @return bool
      */
     public function save(array $options = []);
+
     /* ------------------------------------------------------------------------------------------------
      |  Role CRUD Functions
      | ------------------------------------------------------------------------------------------------
@@ -88,32 +91,11 @@ interface User
     public function isAdmin();
 
     /**
-     * Check if user has an activated account.
-     *
-     * @return bool
-     */
-    public function isActive();
-
-    /**
      * Check if user has a confirmed account.
      *
      * @return bool
      */
     public function isConfirmed();
-
-    /**
-     * Activate the user.
-     *
-     * @return bool
-     */
-    public function activate();
-
-    /**
-     * Deactivate the user.
-     *
-     * @return bool
-     */
-    public function deactivate();
 
     /* ------------------------------------------------------------------------------------------------
      |  Role Check Functions
