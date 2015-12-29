@@ -7,6 +7,28 @@ use Arcanesoft\Contracts\Traits\Activatable;
  *
  * @package   Arcanesoft\Contracts\Auth\Models
  * @author    ARCANEDEV <arcanedev.maroc@gmail.com>
+ *
+ * @property  int                                       id
+ * @property  string                                    username
+ * @property  string                                    first_name
+ * @property  string                                    last_name
+ * @property  string                                    full_name
+ * @property  string                                    email
+ * @property  string                                    password
+ * @property  string                                    remember_token
+ * @property  bool                                      is_admin
+ * @property  bool                                      is_active
+ * @property  bool                                      is_confirmed       (Optional)
+ * @property  string                                    confirmation_code  (Optional)
+ * @property  \Carbon\Carbon                            confirmed_at       (Optional)
+ * @property  \Carbon\Carbon                            created_at
+ * @property  \Carbon\Carbon                            updated_at
+ * @property  \Carbon\Carbon                            deleted_at
+ * @property  \Illuminate\Database\Eloquent\Collection  roles
+ * @property  \Illuminate\Database\Eloquent\Collection  permissions
+ *
+ * @method  static  bool                                   insert(array $values)
+ * @method          \Illuminate\Database\Eloquent\Builder  unconfirmed(string $code)
  */
 interface User extends Activatable
 {
