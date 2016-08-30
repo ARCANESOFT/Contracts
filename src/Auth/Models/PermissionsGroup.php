@@ -42,8 +42,8 @@ interface PermissionsGroup
     /**
      * Attach the permission to a group.
      *
-     * @param  Permission  $permission
-     * @param  bool        $reload
+     * @param  \Arcanesoft\Contracts\Auth\Models\Permission  $permission
+     * @param  bool                                          $reload
      */
     public function attachPermission(&$permission, $reload = true);
 
@@ -53,7 +53,7 @@ interface PermissionsGroup
      * @param  int   $id
      * @param  bool  $reload
      *
-     * @return Permission
+     * @return \Arcanesoft\Contracts\Auth\Models\Permission
      */
     public function attachPermissionById($id, $reload = true);
 
@@ -70,8 +70,8 @@ interface PermissionsGroup
     /**
      * Attach the permission from a group.
      *
-     * @param  Permission  $permission
-     * @param  bool        $reload
+     * @param  \Arcanesoft\Contracts\Auth\Models\Permission  $permission
+     * @param  bool                                          $reload
      */
     public function detachPermission(&$permission, $reload = true);
 
@@ -81,7 +81,7 @@ interface PermissionsGroup
      * @param  int   $id
      * @param  bool  $reload
      *
-     * @return Permission
+     * @return \Arcanesoft\Contracts\Auth\Models\Permission
      */
     public function detachPermissionById($id, $reload = true);
 
@@ -109,9 +109,9 @@ interface PermissionsGroup
      | ------------------------------------------------------------------------------------------------
      */
     /**
-     * Check if role has the given permission (Permission Model or Id).
+     * Check if group has the given permission (Permission Model or Id).
      *
-     * @param  Permission|int  $id
+     * @param  \Arcanesoft\Contracts\Auth\Models\Permission|int  $id
      *
      * @return bool
      */
