@@ -1,5 +1,6 @@
 <?php namespace Arcanesoft\Contracts\Auth\Models;
 
+use Arcanesoft\Contracts\Auth\Bases\Roleable;
 use Arcanesoft\Contracts\Traits\Activatable;
 
 /**
@@ -24,25 +25,13 @@ use Arcanesoft\Contracts\Traits\Activatable;
  * @property  \Carbon\Carbon                            created_at
  * @property  \Carbon\Carbon                            updated_at
  * @property  \Carbon\Carbon                            deleted_at
- * @property  \Illuminate\Database\Eloquent\Collection  roles
  * @property  \Illuminate\Database\Eloquent\Collection  permissions
  *
  * @method  static  bool                                   insert(array $values)
  * @method          \Illuminate\Database\Eloquent\Builder  unconfirmed(string $code)
  */
-interface User extends Activatable
+interface User extends Activatable, Roleable
 {
-    /* ------------------------------------------------------------------------------------------------
-    |  Relationships
-    | ------------------------------------------------------------------------------------------------
-    */
-    /**
-     * User belongs to many roles.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function roles();
-
     /* ------------------------------------------------------------------------------------------------
      |  Getters and Setters
      | ------------------------------------------------------------------------------------------------
@@ -71,37 +60,6 @@ interface User extends Activatable
     public function save(array $options = []);
 
     /* ------------------------------------------------------------------------------------------------
-     |  Role CRUD Functions
-     | ------------------------------------------------------------------------------------------------
-     */
-    /**
-     * Attach a role to a user.
-     *
-     * @param  \Arcanesoft\Contracts\Auth\Models\Role|int $role
-     * @param  bool                                       $reload
-     */
-    public function attachRole($role, $reload = true);
-
-    /**
-     * Detach a role from a user.
-     *
-     * @param  \Arcanesoft\Contracts\Auth\Models\Role|int $role
-     * @param  bool                                       $reload
-     *
-     * @return int
-     */
-    public function detachRole($role, $reload = true);
-
-    /**
-     * Detach all roles from a user.
-     *
-     * @param  bool  $reload
-     *
-     * @return int
-     */
-    public function detachAllRoles($reload = true);
-
-    /* ------------------------------------------------------------------------------------------------
      |  User Check Functions
      | ------------------------------------------------------------------------------------------------
      */
@@ -118,48 +76,6 @@ interface User extends Activatable
      * @return bool
      */
     public function isConfirmed();
-
-    /* ------------------------------------------------------------------------------------------------
-     |  Role Check Functions
-     | ------------------------------------------------------------------------------------------------
-     */
-    /**
-     * Check if user has the given role (Role Model or Id).
-     *
-     * @param  mixed  $id
-     *
-     * @return bool
-     */
-    public function hasRole($id);
-
-    /**
-     * Check if has a role by its slug.
-     *
-     * @param  string  $slug
-     *
-     * @return bool
-     */
-    public function is($slug);
-
-    /**
-     * Check if has at least one role.
-     *
-     * @param  array  $roles
-     * @param  array  &$failedRoles
-     *
-     * @return bool
-     */
-    public function isOne(array $roles, array &$failedRoles = []);
-
-    /**
-     * Check if has all roles.
-     *
-     * @param  array  $roles
-     * @param  array  &$failedRoles
-     *
-     * @return bool
-     */
-    public function isAll(array $roles, array &$failedRoles = []);
 
     /* ------------------------------------------------------------------------------------------------
      |  Permission Check Functions
