@@ -71,6 +71,20 @@ interface User extends Activatable, Roleable
     public function isAdmin();
 
     /**
+     * Check if user is a moderator.
+     *
+     * @return bool
+     */
+    public function isModerator();
+
+    /**
+     * Check if user is a member.
+     *
+     * @return bool
+     */
+    public function isMember();
+
+    /**
      * Check if user has a confirmed account.
      *
      * @return bool
