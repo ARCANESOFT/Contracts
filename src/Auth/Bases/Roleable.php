@@ -34,6 +34,16 @@ interface Roleable
     public function attachRole($role, $reload = true);
 
     /**
+     * Sync the roles by its slugs.
+     *
+     * @param  array  $slugs
+     * @param  bool   $reload
+     *
+     * @return array
+     */
+    public function syncRoles(array $slugs, $reload = true);
+
+    /**
      * Detach a role.
      *
      * @param  \Arcanesoft\Contracts\Auth\Models\Role|int  $role
