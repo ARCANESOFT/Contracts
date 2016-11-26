@@ -91,6 +91,13 @@ interface User extends Activatable, Roleable
      */
     public function isConfirmed();
 
+    /**
+     * Check if user can be impersonated.
+     *
+     * @return bool
+     */
+    public function canBeImpersonated();
+
     /* ------------------------------------------------------------------------------------------------
      |  Permission Check Functions
      | ------------------------------------------------------------------------------------------------
