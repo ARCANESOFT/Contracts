@@ -1,6 +1,6 @@
 <?php namespace Arcanesoft\Contracts\Auth\Models;
 
-use Arcanesoft\Contracts\Auth\Bases\Roleable;
+use Arcanesoft\Contracts\Auth\Traits\Roleable;
 use Arcanesoft\Contracts\Traits\Activatable;
 
 /**
@@ -32,9 +32,9 @@ use Arcanesoft\Contracts\Traits\Activatable;
  */
 interface User extends Activatable, Roleable
 {
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Getters and Setters
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
     /**
      * Set a given attribute on the user model.
@@ -46,9 +46,9 @@ interface User extends Activatable, Roleable
      */
     public function setAttribute($key, $value);
 
-    /* ------------------------------------------------------------------------------------------------
-     |  User CRUD Functions
-     | ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
+     |  Main Methods
+     | -----------------------------------------------------------------
      */
     /**
      * Save the user model to the database.
@@ -59,9 +59,9 @@ interface User extends Activatable, Roleable
      */
     public function save(array $options = []);
 
-    /* ------------------------------------------------------------------------------------------------
-     |  User Check Functions
-     | ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
+     |  Check Methods
+     | -----------------------------------------------------------------
      */
     /**
      * Check if user is an administrator.
@@ -98,9 +98,9 @@ interface User extends Activatable, Roleable
      */
     public function canBeImpersonated();
 
-    /* ------------------------------------------------------------------------------------------------
-     |  Permission Check Functions
-     | ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
+     |  Permission Check Methods
+     | -----------------------------------------------------------------
      */
     /**
      * Check if has a permission.

@@ -1,6 +1,6 @@
 <?php namespace Arcanesoft\Contracts\Auth\Models;
 
-use Arcanesoft\Contracts\Auth\Bases\Roleable;
+use Arcanesoft\Contracts\Auth\Traits\Roleable;
 
 /**
  * Interface  Permission
@@ -19,9 +19,9 @@ use Arcanesoft\Contracts\Auth\Bases\Roleable;
  */
 interface Permission extends Roleable
 {
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Relationships
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
     /**
      * Permission Group Relationship.
@@ -29,4 +29,17 @@ interface Permission extends Roleable
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function group();
+
+    /* -----------------------------------------------------------------
+     |  Check Functions
+     | -----------------------------------------------------------------
+     */
+    /**
+     * Check if the permission has the same slug.
+     *
+     * @param  string  $slug
+     *
+     * @return bool
+     */
+    public function hasSlug($slug);
 }

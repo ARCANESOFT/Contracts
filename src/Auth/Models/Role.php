@@ -21,9 +21,9 @@ use Arcanesoft\Contracts\Traits\Activatable;
  */
 interface Role extends Activatable
 {
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Relationships
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
     /**
      * Role belongs to many users.
@@ -39,9 +39,9 @@ interface Role extends Activatable
      */
     public function permissions();
 
-    /* ------------------------------------------------------------------------------------------------
-     |  CRUD Functions
-     | ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
+     |  Main Methods
+     | -----------------------------------------------------------------
      */
     /**
      * Attach a permission to a role.
@@ -71,15 +71,6 @@ interface Role extends Activatable
     public function detachAllUsers($reload = true);
 
     /**
-     * Check if role has the given user (User Model or Id).
-     *
-     * @param  \Arcanesoft\Contracts\Auth\Models\User|int  $id
-     *
-     * @return bool
-     */
-    public function hasUser($id);
-
-    /**
      * Attach a permission to a role.
      *
      * @param  \Arcanesoft\Contracts\Auth\Models\Permission|int  $permission
@@ -106,19 +97,37 @@ interface Role extends Activatable
      */
     public function detachAllPermissions($reload = true);
 
+    /* -----------------------------------------------------------------
+     |  Check Methods
+     | -----------------------------------------------------------------
+     */
+    /**
+     * Check if role has the given user (User Model or Id).
+     *
+     * @param  \Arcanesoft\Contracts\Auth\Models\User|int  $id
+     *
+     * @return bool
+     */
+    public function hasUser($id);
+
     /**
      * Check if role has the given permission (Permission Model or Id).
      *
-     * @param  mixed  $id
+     * @param  \Arcanesoft\Contracts\Auth\Models\Permission|int  $id
      *
      * @return bool
      */
     public function hasPermission($id);
 
-    /* ------------------------------------------------------------------------------------------------
-     |  Check Functions
-     | ------------------------------------------------------------------------------------------------
+    /**
+     * Check if the role has the same slug.
+     *
+     * @param  string  $slug
+     *
+     * @return bool
      */
+    public function hasSlug($slug);
+
     /**
      * Check if role is associated with a permission by slug.
      *
