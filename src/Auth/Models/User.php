@@ -2,6 +2,7 @@
 
 use Arcanesoft\Contracts\Auth\Traits\Roleable;
 use Arcanesoft\Contracts\Traits\Activatable;
+use Arcanesoft\Contracts\Traits\SoftDeletes;
 
 /**
  * Interface  User
@@ -31,7 +32,7 @@ use Arcanesoft\Contracts\Traits\Activatable;
  * @method  static  bool                                   insert(array $values)
  * @method          \Illuminate\Database\Eloquent\Builder  unconfirmed(string $code)
  */
-interface User extends Activatable, Roleable, Model
+interface User extends Activatable, Roleable, Model, SoftDeletes
 {
     /* -----------------------------------------------------------------
      |  Getters and Setters
