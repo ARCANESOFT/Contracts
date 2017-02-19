@@ -8,18 +8,19 @@ use Arcanesoft\Contracts\Traits\Activatable;
  * @package   Arcanesoft\Contracts\Auth\Models
  * @author    ARCANEDEV <arcanedev.maroc@gmail.com>
  *
- * @property  int                                       id
- * @property  string                                    name
- * @property  string                                    slug
- * @property  string                                    description
- * @property  bool                                      is_active
- * @property  bool                                      is_locked
- * @property  \Carbon\Carbon                            created_at
- * @property  \Carbon\Carbon                            updated_at
+ * @property  int             id
+ * @property  string          name
+ * @property  string          slug
+ * @property  string          description
+ * @property  bool            is_active
+ * @property  bool            is_locked
+ * @property  \Carbon\Carbon  created_at
+ * @property  \Carbon\Carbon  updated_at
+ *
  * @property  \Illuminate\Database\Eloquent\Collection  users
  * @property  \Illuminate\Database\Eloquent\Collection  permissions
  */
-interface Role extends Activatable
+interface Role extends Activatable, Model
 {
     /* -----------------------------------------------------------------
      |  Relationships
@@ -47,7 +48,7 @@ interface Role extends Activatable
      * Attach a permission to a role.
      *
      * @param  \Arcanesoft\Contracts\Auth\Models\User|int  $user
-     * @param  bool                                    $reload
+     * @param  bool                                        $reload
      */
     public function attachUser($user, $reload = true);
 
@@ -55,7 +56,7 @@ interface Role extends Activatable
      * Detach a user from a role.
      *
      * @param  \Arcanesoft\Contracts\Auth\Models\User|int  $user
-     * @param  bool                                    $reload
+     * @param  bool                                        $reload
      *
      * @return int
      */
@@ -74,7 +75,7 @@ interface Role extends Activatable
      * Attach a permission to a role.
      *
      * @param  \Arcanesoft\Contracts\Auth\Models\Permission|int  $permission
-     * @param  bool                                          $reload
+     * @param  bool                                              $reload
      */
     public function attachPermission($permission, $reload = true);
 
@@ -140,20 +141,20 @@ interface Role extends Activatable
     /**
      * Check if a role is associated with any of given permissions.
      *
-     * @param  array  $permissions
-     * @param  array  &$failedPermissions
+     * @param  \Illuminate\Support\Collection|array  $permissions
+     * @param  \Illuminate\Support\Collection        &$failed
      *
      * @return bool
      */
-    public function canAny(array $permissions, array &$failedPermissions = []);
+    public function canAny($permissions, &$failed = null);
 
     /**
      * Check if role is associated with all given permissions.
      *
-     * @param  array  $permissions
-     * @param  array  &$failedPermissions
+     * @param  \Illuminate\Support\Collection|array  $permissions
+     * @param  \Illuminate\Support\Collection        &$failed
      *
      * @return bool
      */
-    public function canAll(array $permissions, array &$failedPermissions = []);
+    public function canAll($permissions, &$failed = null);
 }

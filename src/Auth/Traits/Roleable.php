@@ -36,12 +36,12 @@ interface Roleable
     /**
      * Sync the roles by its slugs.
      *
-     * @param  array  $slugs
-     * @param  bool   $reload
+     * @param  array|\Illuminate\Support\Collection  $slugs
+     * @param  bool                                  $reload
      *
      * @return array
      */
-    public function syncRoles(array $slugs, $reload = true);
+    public function syncRoles($slugs, $reload = true);
 
     /**
      * Detach a role.
@@ -87,20 +87,20 @@ interface Roleable
     /**
      * Check if has at least one role.
      *
-     * @param  array  $roles
-     * @param  array  &$failedRoles
+     * @param  \Illuminate\Support\Collection|array  $roles
+     * @param  \Illuminate\Support\Collection        &$failed
      *
      * @return bool
      */
-    public function isOne(array $roles, array &$failedRoles = []);
+    public function isOne($roles, &$failed = null);
 
     /**
      * Check if has all roles.
      *
-     * @param  array  $roles
-     * @param  array  &$failedRoles
+     * @param  \Illuminate\Support\Collection|array  $roles
+     * @param  \Illuminate\Support\Collection        &$failed
      *
      * @return bool
      */
-    public function isAll(array $roles, array &$failedRoles = []);
+    public function isAll($roles, &$failed = null);
 }
