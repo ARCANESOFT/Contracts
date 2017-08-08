@@ -26,6 +26,7 @@ interface Role extends Activatable, Model
      |  Relationships
      | -----------------------------------------------------------------
      */
+
     /**
      * Role belongs to many users.
      *
@@ -44,6 +45,7 @@ interface Role extends Activatable, Model
      |  Main Methods
      | -----------------------------------------------------------------
      */
+
     /**
      * Attach a permission to a role.
      *
@@ -102,6 +104,7 @@ interface Role extends Activatable, Model
      |  Check Methods
      | -----------------------------------------------------------------
      */
+
     /**
      * Check if role has the given user (User Model or Id).
      *

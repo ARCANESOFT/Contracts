@@ -21,6 +21,7 @@ interface PermissionsGroup extends Model
      |  Relationships
      | -----------------------------------------------------------------
      */
+
     /**
      * Permissions Groups has many permissions.
      *
@@ -32,6 +33,7 @@ interface PermissionsGroup extends Model
      |  CRUD Functions
      | -----------------------------------------------------------------
      */
+
     /**
      * Create and attach a permission.
      *
@@ -109,6 +111,7 @@ interface PermissionsGroup extends Model
      |  Check Functions
      | -----------------------------------------------------------------
      */
+
     /**
      * Check if group has the given permission (Permission Model or Id).
      *

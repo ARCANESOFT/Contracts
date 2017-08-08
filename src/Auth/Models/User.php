@@ -29,42 +29,15 @@ use Arcanesoft\Contracts\Traits\SoftDeletes;
  *
  * @property  \Illuminate\Database\Eloquent\Collection  permissions
  *
- * @method  static  bool                                   insert(array $values)
- * @method          \Illuminate\Database\Eloquent\Builder  unconfirmed(string $code)
+ * @method  \Illuminate\Database\Eloquent\Builder  unconfirmed(string $code)
  */
 interface User extends Activatable, Roleable, Model, SoftDeletes
 {
     /* -----------------------------------------------------------------
-     |  Getters and Setters
-     | -----------------------------------------------------------------
-     */
-    /**
-     * Set a given attribute on the user model.
-     *
-     * @param  string  $key
-     * @param  mixed   $value
-     *
-     * @return \Arcanesoft\Contracts\Auth\Models\User
-     */
-    public function setAttribute($key, $value);
-
-    /* -----------------------------------------------------------------
-     |  Main Methods
-     | -----------------------------------------------------------------
-     */
-    /**
-     * Save the user model to the database.
-     *
-     * @param  array  $options
-     *
-     * @return bool
-     */
-    public function save(array $options = []);
-
-    /* -----------------------------------------------------------------
      |  Check Methods
      | -----------------------------------------------------------------
      */
+
     /**
      * Check if user is an administrator.
      *
@@ -104,6 +77,7 @@ interface User extends Activatable, Roleable, Model, SoftDeletes
      |  Permission Check Methods
      | -----------------------------------------------------------------
      */
+
     /**
      * Check if has a permission.
      *

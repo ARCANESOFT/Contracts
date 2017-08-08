@@ -24,6 +24,7 @@ interface Permission extends Roleable, Model
      |  Relationships
      | -----------------------------------------------------------------
      */
+
     /**
      * Permission Group Relationship.
      *
@@ -35,6 +36,7 @@ interface Permission extends Roleable, Model
      |  Check Functions
      | -----------------------------------------------------------------
      */
+
     /**
      * Check if the permission has the same slug.
      *
