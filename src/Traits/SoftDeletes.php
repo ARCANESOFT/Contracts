@@ -5,6 +5,8 @@
  *
  * @package   Arcanesoft\Contracts\Auth\Traits
  * @author    ARCANEDEV <arcanedev.maroc@gmail.com>
+ *
+ * @see \Illuminate\Database\Eloquent\SoftDeletes
  */
 interface SoftDeletes
 {
@@ -12,6 +14,7 @@ interface SoftDeletes
      |  Main Methods
      | -----------------------------------------------------------------
      */
+
     /**
      * Force a hard delete on a soft deleted model.
      *

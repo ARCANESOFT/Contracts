@@ -14,6 +14,7 @@ interface Roleable
      |  Relationships
      | -----------------------------------------------------------------
      */
+
     /**
      * Roles relationship.
      *
@@ -25,6 +26,7 @@ interface Roleable
      |  Main Methods
      | -----------------------------------------------------------------
      */
+
     /**
      * Attach a role.
      *
@@ -66,6 +68,7 @@ interface Roleable
      |  Check Methods
      | -----------------------------------------------------------------
      */
+
     /**
      * Check if has the given role (Role Model or Id).
      *
