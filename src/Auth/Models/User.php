@@ -28,8 +28,6 @@ use Arcanesoft\Contracts\Traits\SoftDeletes;
  * @property  \Carbon\Carbon  deleted_at
  *
  * @property  \Illuminate\Database\Eloquent\Collection  permissions
- *
- * @method  \Illuminate\Database\Eloquent\Builder  unconfirmed(string $code)
  */
 interface User extends Activatable, Roleable, Model, SoftDeletes
 {
@@ -58,13 +56,6 @@ interface User extends Activatable, Roleable, Model, SoftDeletes
      * @return bool
      */
     public function isMember();
-
-    /**
-     * Check if user has a confirmed account.
-     *
-     * @return bool
-     */
-    public function isConfirmed();
 
     /**
      * Check if user can be impersonated.
